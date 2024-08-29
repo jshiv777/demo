@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <a href="https://www.andamen.com/" onclick="BubblesDispatc(this)" bubble-data="please click here!">click me</a>
+    <script>
+       function BubblesDispatc(element) {
+       var bubbleData = element.getAttribute('bubble-data');
+      alert(bubbleData);
+          smartech('dispatch', 'Banner click', {
+                  'bubble_name': bubbleData,
+                 });
+          }
+      </script>
+</body>
+</html>

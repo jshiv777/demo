@@ -1,0 +1,220 @@
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wishlist</title>
+    <style>
+        ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        .main-wishlisht-wrapper{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+        .wishlist-show {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        .remove-from-cart{
+            height: 30px;
+            width: auto;
+            padding: 2px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Products Feature</h1>
+        <ul class="main-wishlisht-wrapper">
+            <li class="wishlist-box">
+                <div class="wishlist-details">
+                    <img src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/03_014ed387-dc6b-4248-bf08-9d316c055f4c.jpg?v=1707297128" width="100" alt="">
+                    <ul>
+                        <li>title 1</li>
+                        <li>123 rupees</li>
+                    </ul>
+                </div>
+                <button type="button"  class="add-to-cart">Add to cart</button>
+            </li>
+            <li class="wishlist-box">
+                <div class="wishlist-details">
+                    <img src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/03_014ed387-dc6b-4248-bf08-9d316c055f4c.jpg?v=1707297128" width="100" alt="">
+                    <ul>
+                        <li>title 2</li>
+                        <li>123 rupees</li>
+                    </ul>
+                </div>
+                <button type="button"  class="add-to-cart">Add to cart</button>
+            </li>
+            <li class="wishlist-box">
+                <div class="wishlist-details">
+                    <img src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/03_014ed387-dc6b-4248-bf08-9d316c055f4c.jpg?v=1707297128" width="100" alt="">
+                    <ul>
+                        <li>title 3</li>
+                        <li>123 rupees</li>
+                    </ul>
+                </div>
+                <button type="button"  class="add-to-cart">Add to cart</button>
+            </li>
+            <li class="wishlist-box">
+                <div class="wishlist-details">
+                    <img src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/03_014ed387-dc6b-4248-bf08-9d316c055f4c.jpg?v=1707297128" width="100" alt="">
+                    <ul>
+                        <li>title 4</li>
+                        <li>123 rupees</li>
+                    </ul>
+                </div>
+                <button type="button"  class="add-to-cart">Add to cart</button>
+            </li>
+        </ul>
+    </div>
+    <div class="wishlist-show">
+        <div id="wishlist-show"></div>
+    </div>
+    <script>
+        var mainWishlist = document.querySelector('.main-wishlisht-wrapper');
+        var wishlistShow = document.querySelector('.wishlist-show #wishlist-show');
+        
+        mainWishlist.addEventListener('click', function(event) {
+            if (event.target.classList.contains('add-to-cart')) {
+                var wishlist = event.target.parentNode.querySelector('.wishlist-details');
+                
+                // Check if item already exists in the cart
+                var existingItem = wishlistShow.querySelector('.wishlist-details[data-title="' + wishlist.querySelector('li:first-of-type').innerText.trim() + '"]');
+                
+                if(existingItem) {
+                    // If item already exists, show "Edit to cart" button
+                    existingItem.querySelector('.edit-to-cart').style.display = 'block';
+                } else {
+                    // If item doesn't exist, create new entry
+                    var clone = wishlist.cloneNode(true); // Create a deep clone of .wishlist-details
+                    var uniqueId = 'wishlist-item-' + Date.now(); // Generate unique id for the item
+                    clone.setAttribute('data-id', uniqueId); // Set unique id as data attribute
+                    clone.dataset.title = wishlist.querySelector('li:first-of-type').innerText.trim(); // Add data attribute for easy identification
+                    
+                    // Show "Remove from cart" button
+                    var removeBtn = document.createElement('button');
+                    removeBtn.innerText = 'Remove from cart';
+                    removeBtn.classList.add('remove-from-cart');
+                    removeBtn.addEventListener('click', function() {
+                        var itemId = clone.getAttribute('data-id'); // Get unique id of the item
+                        var itemToRemove = wishlistShow.querySelector('[data-id="' + itemId + '"]'); // Find the item to remove
+                        itemToRemove.remove(); // Remove item from cart
+                    });
+                    
+                    // Show "Edit to cart" button
+                    var editBtn = document.createElement('button');
+                    editBtn.innerText = 'Edit to cart';
+                    editBtn.classList.add('edit-to-cart');
+                    editBtn.style.display = 'none';
+                    editBtn.addEventListener('click', function() {
+                        // Implement functionality to edit item in cart
+                        console.log('Edit functionality goes here');
+                    });
+                    
+                    clone.appendChild(removeBtn); // Append "Remove from cart" button to wishlist-details
+                    clone.appendChild(editBtn); // Append "Edit to cart" button to wishlist-details
+                    wishlistShow.appendChild(clone); // Append the cloned node to #wishlist-show
+                }
+            }
+        });
+    </script>
+    
+    
+  
+
+    <!-- <script>
+        var mainWishlist = document.querySelector('.main-wishlisht-wrapper');
+        var wishlistShow = document.getElementById("wishlist-show");
+        
+        mainWishlist.addEventListener('click', function(event) {
+            if (event.target.classList.contains('add-to-cart')) {
+                var wishlist = event.target.parentNode.querySelector('.wishlist-details');
+                
+                // Check if item already exists in the cart
+                var existingItem = wishlistShow.querySelector('.wishlist-details[data-title="' + wishlist.querySelector('li:first-of-type').innerText.trim() + '"]');
+                
+                if(existingItem) {
+                    // If item already exists, show "Edit to cart" button
+                    existingItem.querySelector('.edit-to-cart').style.display = 'block';
+                } else {
+                    // If item doesn't exist, create new entry
+                    var clone = wishlist.cloneNode(true); // Create a deep clone of .wishlist-details
+                    clone.dataset.title = wishlist.querySelector('li:first-of-type').innerText.trim(); // Add data attribute for easy identification
+                    wishlistShow.appendChild(clone); // Append the cloned node to #wishlist-show
+                    
+                    // Show "Remove from cart" button
+                    var removeBtn = document.createElement('button');
+                    removeBtn.innerText = 'Remove from cart';
+                    removeBtn.classList.add('remove-from-cart');
+                    removeBtn.addEventListener('click', function() {
+                        clone.remove(); // Remove item from cart
+                        removeBtn.remove(); // Remove "Remove from cart" button
+                        editBtn.remove(); // Remove "Edit to cart" button
+                    });
+                    wishlistShow.appendChild(removeBtn);
+                }
+                
+                // Show "Edit to cart" button
+                var editBtn = document.createElement('button');
+                editBtn.innerText = 'Edit to cart';
+                editBtn.classList.add('edit-to-cart');
+                editBtn.style.display = 'none';
+                editBtn.addEventListener('click', function() {
+                    // Implement functionality to edit item in cart
+                    console.log('Edit functionality goes here');
+                });
+                wishlistShow.appendChild(editBtn);
+            }
+        });
+    </script> -->
+    
+
+    <!-- <script>
+        var mainWishlist = document.querySelector('.main-wishlisht-wrapper');
+        mainWishlist.addEventListener('click', function(event) {
+            if (event.target.classList.contains('add-to-cart')) {
+                var wishlist = event.target.parentNode.querySelector('.wishlist-details');
+                var wishlistShow = document.getElementById("wishlist-show");
+                var clone = wishlist.cloneNode(true); // Create a deep clone of .wishlist-details
+                wishlistShow.appendChild(clone); // Append the cloned node to #wishlist-show
+            }
+        });
+    </script>  -->
+    <!-- <script>
+        var mainWishlist = document.querySelector('.main-wishlisht-wrapper');
+        mainWishlist.addEventListener('click', function(event) {
+            if (event.target.classList.contains('add-to-cart')) {
+                var wishlist = event.target.parentNode.querySelector('.wishlist-details');
+                document.getElementById("wishlist-show").innerHTML = wishlist.innerHTML;
+            }
+        });
+    </script> -->
+    <!-- <script>
+        var mainWishlist = document.querySelector('.main-wishlisht-wrapper');
+        mainWishlist.addEventListener('click', function(event) {
+            if (event.target.classList.contains('add-to-cart')) {
+                var wishlist = event.target.parentNode.querySelector('.wishlist-details');
+                // console.log(wishlist);
+             document.getElementById("wishlist-show")= wishlist.innerHTML;
+
+            }
+        });
+    </script> -->
+    <!-- <script>
+           var btn = document.querySelectorAll(".add-to-cart");
+        //    console.log( btn);
+        btn.forEach(element => {
+            element.addEventListener('click', function(){
+                var wishlist = document.querySelector(".wishlist-details");
+                console.log(wishlist);
+            });
+        });
+        
+    </script>  -->
+</body>
+</html>

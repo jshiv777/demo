@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(237, 224, 250);
+        }
+        .main .form-wrapper{
+            width: 450px;
+            background-color: aliceblue;
+            
+        }
+        .main .form-wrapper h3{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .main .form-wrapper .form-group{
+            width: 100%;
+            padding: 5px 40px;  
+        }
+        .main .form-wrapper .form-group label{
+            display: block;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+        .main .form-wrapper .form-group input[type="text"], input[type="email"], input[type="password"]{
+            width: 100%;
+            padding: 7px 10px;
+            background: none;
+            border:none;
+            border-bottom: 1.5px solid black;
+        }
+        .main .form-wrapper .form-group input[type="text"], input[type="email"], input[type="password"]:focus-visible{
+            border-bottom: 1.5px solid black;
+        }
+        .main .form-wrapper .btn{
+            padding: 7px 30px;
+            margin: 20px 40px;
+            
+        }
+    </style>
+    <script>
+        function validateForm(){
+            let fname=document.getElementById("fname").value;
+            let lname=document.getElementById("lname").value;
+            let phone=document.getElementById("phone").value;
+            let email=document.getElementById("email").value;
+            let password=document.getElementById("password").value;
+            let c_password=document.getElementById("c_password").value;
+
+            if(fname ==""){
+                alert("please Enter your First Name");
+                document.getElementById("fname").focus();
+                return false;
+            }
+            if(lname ==""){
+                alert("please Enter your Last Name");
+                document.getElementById("lname").focus();
+                return false;
+            }
+            if(phone ==""){
+                alert("please Enter your mobile Number");
+                document.getElementById("phone").focus();
+                return false;
+            }else if(phone.length !=10 ){
+                alert("Please inter 10 digit Mobile No");
+                document.getElementById("phone").focus();
+                return false;
+            }
+           if(email==""){
+            alert("please Enter your email Number");
+                document.getElementById("email").focus();
+                return false;
+           }
+           if(password==""){
+            alert("please Enter your password Number");
+                document.getElementById("password").focus();
+                return false;
+           }
+           if(c_password==""){
+            alert("please Enter your confirm_password Number");
+                document.getElementById("c_password").focus();
+                return false;
+           }
+           
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="form-wrapper">
+            <h3>Form Validation</h3>
+            <form class="form" onsubmit="return validateForm()" method="post">
+                <div class="form-group">
+                    <label for="">First Name: </label>
+                    <input type="text" name="fname" id="fname" class="form-cantrol" placeholder="Enter you First Name">
+                </div>
+            
+                <div class="form-wrapper">
+                    <from class="form">
+                        <div class="form-group">
+                            <label for="">Last Name: </label>
+                            <input type="text" name="lname" id="lname" class="form-cantrol" placeholder="Enter you Last Name">
+                        </div>
+                    </from>
+                </div>
+                <div class="form-wrapper">
+                    <from class="form">
+                        <div class="form-group">
+                            <label for="">Mobile No: </label>
+                            <input type="text" name="phone" id="phone" class="form-cantrol" placeholder="Enter you Phone No">
+                        </div>
+                    </from>
+                </div>
+                <div class="form-wrapper">
+                    <from class="form">
+                        <div class="form-group">
+                            <label for="">Email Address: </label>
+                            <input type="email" name="email" id="email" class="form-cantrol" placeholder="Enter you Email Address">
+                        </div>
+                    </from>
+                </div>
+                <div class="form-wrapper">
+                    <from class="form">
+                        <div class="form-group">
+                            <label for="">Password: </label>
+                            <input type="password" name="password" id="password" class="form-cantrol" placeholder="Enter you Password">
+                        </div>
+                    </from>
+                </div>
+                <div class="form-wrapper">
+                    <from class="form">
+                        <div class="form-group">
+                            <label for="">Confirm_Password: </label>
+                            <input type="password" name="c_password" id="c_password" class="form-cantrol" placeholder="Enter you Confirm_Password">
+                        </div>
+                    </from>
+                </div>
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

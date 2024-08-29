@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Nunito, sans-serif;
+}
+a{
+    text-decoration: none;
+    color:inherit
+}
+img{
+    width: 100%;
+}
+.title{
+    font-weight: 800;
+}
+.header-container{
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+.header-content, .country-container{
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.country-container{
+    margin-top: 80px;
+    column-gap: 40px;
+}
+.country{
+    width: 250px;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0 0 8px 0 #bdbbbb;
+    transition: transform 0.2s ease-in-out;
+}
+.country:hover{
+    transform: scale(1.03);
+    box-shadow: 0 0 8px 0 #999393;
+}
+.country-details{
+    padding: 0px 20px 10px 20px;
+}
+.country-title{
+    margin-block: 1px;
+}
+.country-details p{
+    margin-block: 10px;
+}

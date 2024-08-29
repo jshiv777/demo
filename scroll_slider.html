@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll element</title>
+    <style>
+        .scroll-main{
+            width: 80%;
+            margin: 0 auto;
+            background-color: #f1f1f1;
+            height: 360px;
+            
+        }
+        .scroll-wrapper{
+            overflow-x: hidden;
+            display:-moz-box;
+            display:-webkit-box;
+            justify-content: center;
+          
+        }
+        .scroll{
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="scroll-main">
+        <div class="scroll-wrapper">
+            <div class="scroll" style="background:rgb(247, 189, 45)">1</div>
+            <div class="scroll" style="background: #6f0c83">2</div>
+            <div class="scroll" style="background: #19c962">3</div>
+            <div class="scroll" style="background: #34b6d6">4</div>
+            <div class="scroll" style="background: #dd2626">5</div>
+            <div class="scroll" style="background: #1c19db">6</div>
+            <div class="scroll" style="background: #51b189">7</div>
+            <div class="scroll" style="background: #b15f13">8</div>
+        </div>
+        <button id="left"> < </button>
+        <button id="right"> > </button>
+    </div>
+
+    <script>
+        // var scrollEle = document.querySelectorAll('.scroll');
+        // scrollEle.forEach(element => {
+        //     element.addEventListener('click', function(){
+        //         alert(element.value);
+        //     })
+        // });
+        let btnLft = document.getElementById("left");
+        let btnRgt = document.getElementById("right");
+        var scrollEle = document.querySelector('.scroll-wrapper');
+        btnLft.addEventListener('click', function(){
+            scrollEle.scrollLeft -=300;
+            console.log(scrollEle);
+        })
+        btnRgt.addEventListener('click', function(){
+            scrollEle.scrollLeft +=300;
+            console.log(scrollEle);
+        })
+    </script>
+</body>
+</html>

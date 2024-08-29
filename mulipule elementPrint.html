@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="card-grid">
+                <div class="card">
+                    <h1>Heading1</h1>
+                </div>
+                <div class="card">
+                    <h1>Heading2</h1>
+                </div>
+                <div class="card">
+                    <h1>Heading3</h1>
+                </div>
+                <div class="card">
+                    <h1>Heading4</h1>
+                </div>
+                <div class="card">
+                    <h1>Heading5</h1>
+                </div>
+                <div class="card">
+                    <h1>Heading6</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="demo"></div>
+
+    <script>
+       var ele = document.querySelectorAll('.card');
+       var paramiter = document.getElementById('demo');
+       console.log(paramiter);
+       ele.forEach(function(element) {
+        paramiter.innerHTML += element.outerHTML;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #c5c5c5;
+        }
+        .faqs-wrapper{
+            width: 600px;
+            padding: 40px;
+            background-color: #f1f1f1;
+        }
+        .faqs-wrapper a{
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-block;
+            padding: 8px 0px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="faqs-wrapper">
+        <h2 style=" margin: 20px 0px;">RETURNS & EXCHANGES</h2>
+        <a href="#" class="show_content">+ RISK FREE SHOPPING</a>
+        <p class="content">You can return or exchange any product if you are not satisfied with the fit or size, within 60 days from the date of delivery.</p>
+        <a href="#" class="show_content">+ ELIGIBILITY</a>
+        <p class="content">Products must be unused, unwashed, undamaged and should have all the original tags and packaging. Once your return is processed, the full product price, including taxes, will be returned to you. Any additional shipping charges, if paid, are not returned.</p>
+        <a href="#" class="show_content">+ PROCESS</a>
+        <p class="content">
+            To initiate a return/exchange, create a request here. Alternatively, you can also contact us with your order details.
+
+            Our warehouse team typically takes around 48-72 hours to inspect all items due for returns or exchanges. Once approved, it’ll take upto 7 business days for the amount to reflect in your back account in case of a refund.
+
+            For an exchange, we’ll ship out your new size/product once the pickup is completed.
+        </p>
+    </div>
+
+    <script>
+        // Get all elements with class "content"
+        var tabcontent = document.getElementsByClassName("content");
+        
+        // Hide all content initially
+        for (var i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+    
+        // Get all elements with class "show_content"
+        var showcontent = document.getElementsByClassName("show_content");
+    
+        // Add click event listener to each "show_content" element
+        for (var i = 0; i < showcontent.length; i++) {
+            showcontent[i].addEventListener("click", function () {
+                // Find the corresponding content element
+                var content = this.nextElementSibling;
+    
+                // Toggle the display style of the content element
+                if (content.style.display === "none" || content.style.display === "") {
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

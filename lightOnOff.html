@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .light{
+            width: 80%;
+            margin:0 auto;
+            background-color: #faecf5;
+            padding: 30px;
+        }
+        .light .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+.mystyle{
+	background-color: red;
+	border: 5px solid green;
+}
+        .light .wrapper .bulb{
+            height: 350px;
+            width: 350px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background-color: #f1f1f1f1;
+            box-shadow: 20px 1px 80px 5px #000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="light">
+        <div class="wrapper">
+            <div id="cd" class="bulb"></div>
+        </div>
+        <button id="on">ON</button>
+        <button id="off">OFF</button>
+    </div>
+    
+    <script>
+        var on = document.getElementById("on");
+        on.addEventListener("click", ()=>{
+		var chng = document.getElementById("cd");
+            	chng.classList.toggle("mystyle");
+		console.log(chng);
+           
+        });
+	var off = document.getElementById("off");
+	off.addEventListener("click", ()=>{
+		var chng = document.getElementById("bulb");
+            	//chng.style.backgroundColor = "#f1f1f1";
+	});
+	
+
+    </script>   
+</body>
+</html>

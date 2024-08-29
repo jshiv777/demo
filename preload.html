@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .preldr{
+            height: 100vh;
+            width: 100%;
+            background: #111;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            letter-spacing: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- <div class="variant_detail" id="myFrame">
+        <img   src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/02_d9719d72-d0d2-4fad-89c2-6852878536d6.jpg?v=1696598135" alt="" srcset="">
+     </div> 
+     <div class="preldr" id="demo">Loading...</div>
+
+
+     <script>
+        // document.getElementById("myFrame").onload = function() {myFunction()};
+
+        
+        document.getElementById("myFrame").style.display="none";
+        document.getElementById("myFrame").addEventListener("load", myFunction);
+        function myFunction() {
+          document.getElementById("demo").style.display = "none";
+          document.getElementById("myFrame").style.display="block";
+        }
+        </script> -->
+
+
+        <div class="variant_detail" id="myFrame">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus architecto recusandae quam, 
+                odit sunt at dignissimos optio tempora quidem, explicabo earum qui, expedita itaque nam! Consequuntur reiciendis iusto mollitia recusandae.</p>
+        </div>
+        <div class="preldr" id="demo">Loading...</div>
+        
+        <script>
+            document.getElementById("myFrame").style.display = "none";
+            // Initially, set a timeout to hide the demo element after 5 seconds
+            setTimeout(function() {
+                document.getElementById("demo").style.display = "none";
+                document.getElementById("myFrame").style.display = "block";
+            }, 5000);
+        </script>
+        
+</body>
+</html>
